@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a">
+  <title>Location - Helpmate</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase core -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <!-- Storage -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+  <!-- App logic -->
+  <script src="js/app.js" defer></script>
+</head>
+
+<body onload="getLocationDetails()">
+
+  <div class="app-container">
+
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo-icon">📍</div>
+        <div class="logo-text">
+          <h1>Location</h1>
+          <p>Live Tracking</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <div class="map-box"
+        style="border: 1px solid var(--border-glass); border-radius: 20px; overflow: hidden; height: 50vh; opacity: 0.8; background: #000;">
+        <iframe id="mapFrame" style="width:100%; height:100%; border:0;"></iframe>
+      </div>
+
+      <div style="text-align: center;">
+        <p id="coords" style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Fetching your location...
+        </p>
+
+        <button class="emergency-btn" onclick="saveLocationAndContinue()"
+          style="width: 100%; height: 60px; border-radius: 16px; flex-direction: row; gap: 10px;">
+          <span class="btn-icon" style="font-size: 24px;">📍</span>
+          <span class="btn-text" style="font-size: 16px;">Share Location</span>
+        </button>
+      </div>
+
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="location.href='index.html'">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="js/location.js"></script>
+
+  <script>
+    function saveLocationAndContinue() {
+      const btn = document.querySelector('.emergency-btn');
+      btn.innerHTML = '<span class="btn-text">Locating...</span>';
+
+      navigator.geolocation.getCurrentPosition(pos => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+
+        // Generate Google Maps Link
+        const mapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+
+        const location = {
+          lat: lat,
+          lng: lng,
+          mapsLink: mapsLink
+        };
+
+        localStorage.setItem("userLocation", JSON.stringify(location));
+        window.location.href = "submit.html";
+      }, err => {
+        alert("Could not get location. Please enable GPS.");
+        btn.innerHTML = '<span class="btn-text">Retry</span>';
+      });
+    }
+  </script>
+
+</body>
+
+</html>

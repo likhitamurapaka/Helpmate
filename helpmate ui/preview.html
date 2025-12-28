@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#0f172a">
+    <title>Preview - Helpmate</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Firebase core -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <!-- Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <!-- Storage -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+    <!-- App logic -->
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo-icon">📷</div>
+                <div class="logo-text">
+                    <h1>Preview</h1>
+                    <p>Review Evidence</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+
+            <div class="camera-box">
+                <img id="capturedImage" style="width:100%; height:100%; object-fit:contain;">
+            </div>
+
+            <!-- AI Analysis Result -->
+
+
+            <!-- Location Preview (New) -->
+            <div class="location-preview" style="margin-bottom: 15px; text-align: center;">
+                <p id="previewLocation" style="color: var(--text-secondary); font-size: 0.9rem;">
+                    📍 Fetching location...
+                </p>
+            </div>
+
+            <div style="display: flex; gap: 12px; width: 100%;">
+                <button class="emergency-btn" onclick="retakePhoto()"
+                    style="flex: 1; height: 50px; border-radius: 12px; background: var(--surface-glass); border: 1px solid var(--border-glass); box-shadow: none;">
+                    <span class="btn-text" style="font-size: 14px;">Retake</span>
+                </button>
+
+                <button class="emergency-btn" onclick="confirmPhoto()"
+                    style="flex: 1; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);">
+                    <span class="btn-text" style="font-size: 14px;">Confirm</span>
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/camera.js"></script>
+    <script>
+        function showPreviewLocation() {
+            const locData = localStorage.getItem("userLocation");
+            const locEl = document.getElementById("previewLocation");
+            if (locData && locEl) {
+                const loc = JSON.parse(locData);
+                locEl.innerHTML = `📍 ${loc.address}`;
+            } else if (locEl) {
+                locEl.innerText = "📍 Location not available";
+            }
+        }
+
+        // Hook into the load flow
+        const originalOnload = window.onload;
+        window.onload = function () {
+            if (originalOnload) originalOnload();
+            loadCapturedPhoto();
+            showPreviewLocation(); // Show location
+        };
+    </script>
+</body>
+
+</html>

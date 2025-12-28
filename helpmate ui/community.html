@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a">
+  <title>Community - Helpmate</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/community.js" defer></script>
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo-icon">👥</div>
+        <div class="logo-text">
+          <h1>Community</h1>
+          <p>Real-time Updates</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content" style="align-items: stretch; padding-top: 0;">
+
+      <!-- Stats -->
+      <div class="stats-container">
+        <div class="stat-item">
+          <b>1,247</b><br>
+          <span>Lives Saved</span>
+        </div>
+        <div class="stat-item">
+          <b>24/7</b><br>
+          <span>Support</span>
+        </div>
+        <div class="stat-item">
+          <b>98%</b><br>
+          <span>Success</span>
+        </div>
+      </div>
+
+      <!-- Create Post Button -->
+      <button class="emergency-btn" onclick="openPost()"
+        style="width: 100%; height: 50px; border-radius: 12px; flex-direction: row; gap: 8px; font-size: 16px; margin-bottom: 20px;">
+        <span style="font-size: 18px;">➕</span>
+        <span class="btn-text" style="font-size: 14px;">Create Post</span>
+      </button>
+
+      <!-- Feed -->
+      <div id="feed">
+
+        <!-- Post -->
+        <div class="post-card">
+          <img src="firepic.jpg" alt="post">
+
+          <div class="post-body">
+            <div style="margin-bottom: 8px;">
+              <span class="post-status">✔ Completed</span>
+              <span class="post-time">2 hours ago</span>
+            </div>
+
+            <p class="post-text">
+              Successfully extinguished apartment fire.
+              All residents evacuated safely.
+            </p>
+
+            <div class="post-location">📍 456 Main St, Downtown</div>
+
+            <div class="post-actions">
+              ❤️ 234 Support
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="location.href='index.html'">
+        <span class="nav-icon">🚨</span>
+        <span class="nav-label">Alert</span>
+      </button>
+
+      <button class="nav-item active">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">Community</span>
+      </button>
+    </nav>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Emergency</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+  <!-- App logic (IMPORTANT: defer stays) -->
+  <script src="js/app.js" defer></script>
+</head>
+
+<body onload="loadReview()">
+
+  <div class="home">
+
+    <h2 class="page-title">Review Emergency Report</h2>
+
+    <!-- IMAGE PREVIEW -->
+    <div class="camera-box">
+      <img id="reviewPhoto" alt="Captured emergency photo">
+    </div>
+
+    <!-- LOCATION PREVIEW -->
+    <p id="reviewLocation" style="margin-top:15px;color:#555;"></p>
+
+    <button class="report-btn" onclick="sendEmergencyReport()">
+  🚀 Send to Helpmate Team
+</button>
+<button onclick="
+firebase.storage().ref().listAll()
+  .then(r => alert('Storage ready ✅'))
+  .catch(e => alert('Storage not ready ❌'))
+">
+Test Storage
+</button>
+  </div>
+
+</body>
+</html>

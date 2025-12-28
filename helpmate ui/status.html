@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Submitted</title>
+    <link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase core -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+
+  <!-- Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- Storage -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
+  <!-- YOUR app logic (must come AFTER Firebase) -->
+  <script src="js/app.js" defer></script>
+</head>
+
+</head>
+<body>
+
+<div class="home">
+    <div class="success-icon">✔</div>
+
+    <h2>Emergency Report Received</h2>
+    <p>Our response team has been notified and is on the way.</p>
+
+    <button class="report-btn blue" onclick="goHome()">
+        🏠 Back to Home
+    </button>
+</div>
+
+<script>
+function goHome() {
+    localStorage.clear();
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

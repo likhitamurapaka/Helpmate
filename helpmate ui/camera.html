@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a">
+  <title>Capture Incident - Helpmate</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="startCamera()">
+
+  <div class="app-container">
+
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo-icon">📷</div>
+        <div class="logo-text">
+          <h1>Evidence Cam</h1>
+          <p>Secure Capture</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <!-- Camera Box -->
+      <div class="camera-box" onclick="capturePhoto()">
+        <video id="video" autoplay playsinline></video>
+        <span class="camera-overlay">Tap to Focus</span>
+      </div>
+
+      <!-- Capture Button -->
+      <button class="emergency-btn" id="clickPhoto"
+        style="width: 80px; height: 80px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);">
+        <span class="btn-icon" style="font-size: 32px;">📸</span>
+      </button>
+      <p class="emergency-hint">Tap to Snap</p>
+
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item" onclick="location.href='index.html'">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <!-- JS FILES -->
+  <script src="js/camera.js"></script>
+
+  <script>
+    const clickBtn = document.getElementById("clickPhoto");
+    clickBtn.addEventListener("click", capturePhoto);
+  </script>
+
+</body>
+
+</html>

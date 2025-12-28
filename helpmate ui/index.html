@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a">
+  <title>Helpmate</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase core -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <!-- Firestore ONLY -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <!-- App logic -->
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <header class="header">
+      <div class="logo-container">
+        <div class="logo-icon">🛡️</div>
+        <div class="logo-text">
+          <h1>Helpmate</h1>
+          <p>Emergency Guardian</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+
+      <div class="emergency-trigger-container">
+        <div class="pulse-ring"></div>
+        <div class="pulse-ring delay"></div>
+        <button class="emergency-btn" onclick="location.href='camera.html'">
+          <span class="btn-icon">🚨</span>
+          <span class="btn-text">REPORT ISSUE</span>
+        </button>
+        <p class="emergency-hint">Tap for Immediate Help</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <div class="feature-text">
+            <h3>Instant Cam</h3>
+            <p>Evidence</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <div class="feature-text">
+            <h3>Live GPS</h3>
+            <p>Tracking</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-text">
+            <h3>Fast Alert</h3>
+            <p>Response</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active">
+        <span class="nav-icon">🚨</span>
+        <span class="nav-label">Alert</span>
+      </button>
+
+      <button class="nav-item" onclick="location.href='community.html'">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">Community</span>
+      </button>
+    </nav>
+
+  </div>
+
+</body>
+
+</html>
