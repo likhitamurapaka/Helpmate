@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../dash board.ui"
+		},
+		{
+			"path": "../helpmate ui"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "dash board.ui"
+	}
+}
